@@ -1,5 +1,5 @@
 # galaxy-digital
-Galaxy team Introdution
+Galaxy-Digital Introdution
 <p align="center"><img align="center" src="https://github.com/loganworld/loganworld/blob/main/logo.jpg?raw=true" style = "width: -webkit-fill-available;"/></p>
 <h1 align="center">
   <a href="/"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=findwrk&color=%230076D6&style=flat&logo=google-chrome&logoColor=%230076D6" alt="website"/></a>
@@ -13,7 +13,7 @@ Galaxy team Introdution
 <img align="right" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=loganworld&layout=compact&theme=merko&count_private=true" />
 <img height="150px" /> -->
 
-<h2 font-weight="bold">𝐒𝐤𝐢𝐥𝐥 𝐒𝐞𝐭</h2>
+<h2 font-weight="bold">?????????? ??????</h2>
 <table>
   <tr>
     <td><img src="https://smartcontractprogrammer.com/static/media/logo.cae6ce4a.svg" width="200"></td>
@@ -27,7 +27,7 @@ Galaxy team Introdution
 </table>
 
 <br />
-<h1 font-weight="bold"  align="center">I’m hoping to do some good in the world!</h2>
+<h1 font-weight="bold"  align="center">I�m hoping to do some good in the world!</h2>
 
 <div>
  
