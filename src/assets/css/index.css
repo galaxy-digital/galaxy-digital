@@ -51,34 +51,38 @@
 }
 
 body {
+  font-size: 20px;
   font-family: "Exo 2", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.7px;
 }
 
-h3 {
-  margin: 0 !important;
-  text-align: left;
-}
-
-h4 {
-  margin: 0 !important;
-}
-
 h1 {
-  font-size: 48px;
+  font-size: 3em;
   line-height: 120px;
   margin: 0 !important;
   color: var(--txt-color-light);
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 2em;
   margin: 0 !important;
   line-height: 120px;
   color: var(--txt-color-light);
 }
+
+h3, .h3 {
+  font-size: 1.5em;
+  margin: 0 !important;
+  text-align: left;
+}
+
+h4, .h4 {
+  font-size: 1.25em;
+  margin: 0 !important;
+}
+
 
 span {
   font-size: 1rem;

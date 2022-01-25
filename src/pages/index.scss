@@ -5,7 +5,7 @@
   width: 100%;
 
   //   Title Section
-  .title-section {
+  header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        padding: 15px 0;
         @media only screen and (max-width: 425px) {
           flex-direction: column;
           gap: 20px;
@@ -79,8 +79,12 @@
     flex-direction: column;
     align-items: center;
     padding: 0 50px;
-    @media only screen and (max-width: 375px) {
-      padding: 0 20px;
+    > div {
+      width: 80%;
+    }
+    @media (max-width: 576px) {
+      padding: 0 0;
+      width: 100%;
     }
 
     .items {
@@ -121,10 +125,9 @@
           padding-bottom: 20px;
         }
 
-        p {
+        span {
           text-align: center;
         }
-        
 
         > div {
           display: flex;
@@ -143,10 +146,6 @@
           &:hover {
             background: var(--main-color);
           }
-        }
-
-        :last-child {
-          align-items: baseline;
         }
       }
     }
@@ -394,5 +393,33 @@
 @media only screen and (max-width: 580px) {
   h2 {
     font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+  }
+  h4 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  h1 {
+    font-size: 32px;
+    line-height: 80px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  h1 {
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 0 20px;
   }
 }

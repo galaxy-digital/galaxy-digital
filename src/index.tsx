@@ -6,9 +6,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { slice } from "./useStore";
 
-import "./assets/boxicons-2.0.7/css/boxicons.min.css";
+/* import "./assets/boxicons-2.0.7/css/boxicons.min.css"; */
 import "./assets/css/grid.css";
-import "./assets/css/theme.css";
+/* import "./assets/css/theme.css"; */
 import "./assets/css/index.css";
 
 import Layout from "./components/layout/Layout";
