@@ -1,428 +1,312 @@
 import "./index.scss";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-import { GiHamburgerMenu } from "react-icons/gi";
 import Particle from "../components/particle/Particle";
-import Input from "../components/input/Input";
-
-import { Phone, Mail, Address, Apartment } from "../components/icons/Icons";
+import Header from "../components/layout/header/Header";
 
 import Blockchain from "../assets/images/blockchain.webp";
 import Unity from "../assets/images/unity.webp";
 import Web from "../assets/images/web.webp";
-import Logo from "../assets/images/logo.png";
-import Ataricasino from "../assets/images/ataricasino.webp";
-import Cryptowolf from "../assets/images/cryptowolf.webp";
-import Slashercasino from "../assets/images/slashercasino.webp";
-import Gada from "../assets/images/gada.webp";
-import Overworldlife from "../assets/images/slashercasino.webp";
-import Energy from "../assets/images/energy-oilandgas-min.webp";
-import Finance from "../assets/images/finance.webp";
-import Healthcare from "../assets/images/healthcare.webp";
-import Supplychain from "../assets/images/supply-chain.webp";
-import Transportation from "../assets/images/transportation-min.webp";
-import Insaurance from "../assets/images/insaurance-min.webp";
-import Agriculture from "../assets/images/agriculture.webp";
-import Retail from "../assets/images/retail.webp";
+
+import Defi from "../assets/images/defi.webp";
+import NFT from "../assets/images/nft.webp";
+import Other from "../assets/images/solution.webp";
+import Netcode from "../assets/images/netcode.webp";
+import Communication from "../assets/images/communication.webp";
+import Lobby from "../assets/images/lobby.webp";
+import Design from "../assets/images/design.webp";
+import Technology from "../assets/images/technology.webp";
+import Customer from "../assets/images/customer.webp";
 
 import useStore from "../useStore";
 
 const Home = () => {
-	const G = useStore();
+  const G = useStore();
 
-	const [mobileView, setMobileView] = useState(false);
-	const [drowdownFlag, setDrowdownFlag] = useState(false);
+  return (
+    <div className="home">
+      <header className="title-section">
+        <Particle />
+        <div className="container">
+          <Header />
+          <div className="team-content">
+            <h1>Galaxy Team</h1>
+            <h4>
+              Apriorit provides dedicated R&D teams with unbelievable 98% client
+              retention rate.
+              <br />
+              <br />
+              We give you much more than software programming skills.
+            </h4>
+          </div>
+        </div>
+      </header>
+      <section className="container services">
+        <h2>Our Services</h2>
+        <div className="row items">
+          <div>
+            <div className="image">
+              <img src={Blockchain} alt="Blockchain" />
+            </div>
+            <div className="description">
+              <span>
+                <b>Blockchain Development</b>
+              </span>
+              <span className="fill">
+                We bring you the best in blockchain development services,
+                combining technical prowess with extensive business experience.
+                We have more than 25 blockchain projects under our belt. We can
+                help you.
+              </span>
 
-	useEffect(() => {
-		const setResponsiveness = () => {
-			return window.innerWidth < 1400
-				? setMobileView(true)
-				: setMobileView(false);
-		};
-		setResponsiveness();
-		window.addEventListener("resize", () => setResponsiveness());
-	});
+              <Link to="/details">
+                <div>Learn More</div>
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="image">
+              <img src={Unity} alt="Unity" />
+            </div>
+            <div className="description">
+              <span>
+                <b>Game Development</b>
+              </span>
+              <span className="fill">
+                Professional website design crafted by web design's leading
+                artistic minds. Caveni creates a custom digital experience that
+                engages and inspires your audience.
+              </span>
+              <Link to="/details">
+                <div>Learn More</div>
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="image">
+              <img src={Web} alt="Web" />
+            </div>
+            <div className="description">
+              <span>
+                <b>Website Development</b>
+              </span>
+              <span className="fill">
+                We are an agile software team providing both back-end and
+                front-end development. Our teams build web applications powered
+                by bulletproof code, with stunning interfaces.
+              </span>
+              <Link to="/details">
+                <div>Learn More</div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	function mobileMenuButton() {
-		drowdownFlag ? setDrowdownFlag(false) : setDrowdownFlag(true);
-	}
+      <section className="strategy">
+        <div className="container">
+          <div></div>
+          <div>
+            <h2>What our clients say about us</h2>
+            <span>
+              We have significant experience of work on cybersecurity and data
+              management projects for leading technology vendors. Delivering
+              expert driver development, system programming, and reverse
+              engineering skills, we assist our clients with the most innovative
+              and challenging projects.
+            </span>
+          </div>
+        </div>
+      </section>
 
-	return (
-		<div className="home">
-			<header className="title-section">
-				<Particle />
-				<div className="container">
-					<div className="team-header">
-						<div className="logo">
-							<img src={Logo} alt="Logo" height={70} />
-						</div>
-						{!mobileView ? (
-							<div className="header-link">
-								<div>
-									<h4>Business</h4>
-								</div>
-								<div>
-									<h4>News</h4>
-								</div>
-								<div>
-									<h4>Developers</h4>
-								</div>
-								<div>
-									<h4>Community</h4>
-								</div>
-								<div>
-									<h4>Contact Us</h4>
-								</div>
-							</div>
-						) : (
-							<div data-toggle="dropdown" onClick={mobileMenuButton}>
-								<GiHamburgerMenu style={{ width: "30px", height: "30px" }} />
-							</div>
-						)}
-					</div>
-					<div className="team-content">
-						<h1>Galaxy Team</h1>
-						<h4>
-							Apriorit provides dedicated R&D teams with unbelievable 98% client
-							retention rate.
-							<br />
-							<br />
-							We give you much more than software programming skills.
-						</h4>
-					</div>
-				</div>
-			</header>
+      <section className="container solutions">
+        <h2>Our Solutions</h2>
+        <div className="row items">
+          <div>
+            <img src={Other} alt="solution" />
+            <div>
+              <span>
+                <b>Blockchain Development</b>
+              </span>
+              <span>
+                Crypto-enterprises, Ethereum projects, and established
+                institutions are building on the Ethereum blockchain. ConsenSys
+                has developed a suite of developer products to jumpstart
+                decentralized application production—from Ethereum
+                infrastructure and test environments to developer tools and
+                smart contract audits.
+              </span>
+            </div>
+          </div>
+          <div>
+            <img src={Defi} alt="defi" />
+            <div>
+              <span>
+                <b>DeFi for Institutions</b>
+              </span>
+              <span>
+                Decentralized Finance (DeFi) unlocks untold amounts of economic
+                opportunity. Financial institutions, crypto enterprises,
+                exchanges, and funds seek to engage and capitalize on
+                opportunities created by this new economic system. Galaxy
+                Digital offers several blockchain solutions to facilitate entry
+                and participation in DeFi.
+              </span>
+            </div>
+          </div>
+          <div>
+            <img src={NFT} alt="nft" />
+            <div>
+              <span>
+                <b>NFT Experiences</b>
+              </span>
+              <span>
+                The global NFT market has emerged as a significant and growing
+                subsegment of the digital assets market in recent months, with a
+                gross transaction value of $370 billion. At Galaxy Digital, we
+                leverage our deep understanding of the NFT market to build a
+                white-label NFT experience for your organization.
+              </span>
+            </div>
+          </div>
+          <div>
+            <img src={Netcode} alt="netcode" />
+            <div>
+              <span>
+                <b>Build a reliable foundation for your game</b>
+              </span>
+              <ul>
+                <li>
+                  <span>
+                    <strong>Netcode for GameObjectsᴮᴱᵀᴬ </strong>
+                    GameObject-based multiplayer backend framework
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Netcode for Entities </strong>
+                    Entity-based multiplayer backend framework
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img src={Lobby} alt="lobby" />
+            <div>
+              <span>
+                <b>Connect your players at scale, wherever they are</b>
+              </span>
+              <ul>
+                <li>
+                  <span>
+                    <strong>Relayᴮᴱᵀᴬ</strong>
+                    Peer-to-peer networking
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Lobbyᴮᴱᵀᴬ</strong>
+                    Custom private and public game lobbies
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Multiplay (Contact us)</strong>
+                    Launch-ready game server hosting
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Matchmaker (Contact us)</strong>
+                    Multiplayer matchmaking services
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img src={Communication} alt="communication" />
+            <div>
+              <span>
+                <b>Enable healthy and positive social experiences</b>
+              </span>
+              <ul>
+                <li>
+                  <span>
+                    <strong>Vivox</strong>
+                    In-game voice and chat services
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Community and safety (coming soon)</strong>
+                    Player safety analysis and management
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img src={Design} alt="slasher" />
+            <div>
+              <span>
+                <b>Design and Architecture</b>
+              </span>
+              <span>
+                Galaxy Digital creates architectures for structured solutions
+                that meet your business and technical requirements and develop
+                design plans that identify the different elements that make up
+                your solution and show how they work together.
+              </span>
+            </div>
+          </div>
+          <div>
+            <img src={Technology} alt="cryptowolf" />
+            <div>
+              <span>
+                <b>Technology and Engineering</b>
+              </span>
+              <span>
+                Our specialists work diligently to comprehend the client’s
+                business processes, and, as a result, have an understanding of
+                the whole concept of the desired solution.
+              </span>
+            </div>
+          </div>
+          <div>
+            <img src={Customer} alt="atari" />
+            <div>
+              <span>
+                <b>Customer success </b>
+              </span>
+              <span>
+                Galaxy Digital goes beyond classical support services and are
+                ready to write your business success story together. Explore
+                more opportunities for your business with a proven plan aligned
+                with your goals and priorities.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-			<section className="services">
-				<div>
-					<h2>Our Services</h2>
-					<div className="items">
-						<div>
-							<img src={Blockchain} alt="Blockchain" />
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-							<div>Learn More</div>
-						</div>
-						<div>
-							<img src={Unity} alt="Unity" />
-							<span>
-								<b>Game Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-							<div>Learn More</div>
-						</div>
-						<div>
-							<img src={Web} alt="Web" />
-							<span>
-								<b>Website Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-							<div>Learn More</div>
-						</div>
-					</div>
-				</div>
-			</section>
+      <section className="future">
+        <div className="container">
+          <h2>What our clients say about us</h2>
+          <span>
+            We have significant experience of work on cybersecurity and data
+            management projects for leading technology vendors. Delivering
+            expert driver development, system programming, and reverse
+            engineering skills, we assist our clients with the most innovative
+            and challenging projects.
+          </span>
+        </div>
+      </section>
 
-			<section className="solutions">
-				<h2>Our Solutions</h2>
-				<div className="items">
-					<div>
-						<img src={Transportation} alt="atari" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Finance} alt="gada" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Healthcare} alt="slasher" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Supplychain} alt="cryptowolf" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Energy} alt="atari" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Gada} alt="gada" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Slashercasino} alt="slasher" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Cryptowolf} alt="cryptowolf" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Insaurance} alt="atari" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Agriculture} alt="gada" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Overworldlife} alt="slasher" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-					<div>
-						<img src={Retail} alt="cryptowolf" />
-						<div>
-							<span>
-								<b>Blockchain Development</b>
-							</span>
-							<span>
-								Professional website design crafted by web design's leading
-								artistic minds. Caveni creates a custom digital experience that
-								engages and inspires your audience.
-							</span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section className="future">
-				<div className="col-8">
-					<h2>What our clients say about us</h2>
-					<span>
-						We have significant experience of work on cybersecurity and data
-						management projects for leading technology vendors. Delivering
-						expert driver development, system programming, and reverse
-						engineering skills, we assist our clients with the most innovative
-						and challenging projects.
-					</span>
-				</div>
-			</section>
-
-			<section className="contactus">
-				<div className="header">
-					<h2>Tell us about your project</h2>
-					<span>
-						Send us a request for proposal! We’ll get back to you with details
-						and estimations.
-					</span>
-				</div>
-				<div className="row content">
-					<div className="infosign">
-						<div>
-							<Input
-								type="text"
-								// onChange={onChange}
-								name="name"
-								// value={name}
-								placeholder="Name"
-							/>
-						</div>
-						<div>
-							<Input
-								type="email"
-								// onChange={onChange}
-								name="email"
-								// value={name}
-								placeholder="Email"
-							/>
-							<Input
-								type="text"
-								// onChange={onChange}
-								name="phone"
-								// value={name}
-								placeholder="Phone"
-							/>
-						</div>
-						<div>
-							<Input
-								type="text"
-								// onChange={onChange}
-								name="title"
-								// value={name}
-								placeholder="Subject of your request"
-							/>
-						</div>
-						<div>
-							<Input
-								type="textarea"
-								// onChange={onChange}
-								name="name"
-								// value={name}
-								placeholder="Give us more details on your project"
-							/>
-						</div>
-						<small>
-							By clicking Send you give consent to processing your data
-						</small>
-						<div className="btn">Send</div>
-					</div>
-					<div className="contact">
-						<div className="bookcall">
-							<h3>Book an Exploratory Call</h3>
-							<span>
-								Do not have any specific task for us in mind but our skills seem
-								interesting?
-								<br />
-								<br />
-								Get a quick Apriorit intro to better understand our team
-								capabilities.
-							</span>
-							<div>Boot time slot</div>
-						</div>
-						<div className="info">
-							<h3>Contact Us</h3>
-							<div>
-								<div>
-									<div>
-										<Phone size={24} />
-									</div>
-									<span>+1 202-780-9339</span>
-								</div>
-								<div>
-									<div>
-										<Mail size={24} />
-									</div>
-									<span>info@galaxy.com</span>
-								</div>
-								<div>
-									<div>
-										<Address size={24} />
-									</div>
-									<span>
-										3524 Silverside Road Suite 35B Rome, DE 19810-4929 Italy
-									</span>
-								</div>
-								<div>
-									<div>
-										<Apartment size={24} />
-									</div>
-									<span>D-U-N-S number: 117063762</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<footer>
-
-			</footer>
-		</div>
-	);
+      <footer></footer>
+    </div>
+  );
 };
 
 export default Home;

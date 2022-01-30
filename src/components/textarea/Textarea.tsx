@@ -1,19 +1,18 @@
 import React from "react";
-import "./input.scss";
+import "./textarea.scss";
 
-const Input = (props: any) => {
+const Textarea = (props) => {
   return (
     <div className="x-container">
-      <input
-        type={props.type}
-        onChange={props.onChange}
+      <textarea
         name={props.name}
-        ref={props.innerRef}
         value={props.value}
         placeholder={props.placeholder}
+        onChange={props.onChange}
+        rows={3}
       />
     </div>
   );
 };
 
-export default Input;
+export default Textarea;

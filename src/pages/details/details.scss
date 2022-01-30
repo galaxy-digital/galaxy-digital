@@ -1,0 +1,112 @@
+.background {
+  background: url("../../assets/images/abstract.jpg") no-repeat;
+  background-size: cover;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px 80px;
+
+    @media only screen and (max-width: 768px) {
+      padding: 0 30px 80px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 0 40px;
+    }
+
+    h1 {
+      color: var(--second-bg-dark);
+    }
+
+    h2 {
+      color: var(--main-color-green);
+      line-height: 80px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      background: transparent;
+
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 10px 0 #808080;
+        border-radius: 40px;
+        cursor: pointer;
+        flex-wrap: wrap;
+        transition: all 0.85s;
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 768px) {
+          background: url("../../assets/images/recent1.png") no-repeat;
+          background-size: cover;
+
+          img {
+            display: none;
+          }
+
+          > div {
+            span {
+              color: var(--txt-white);
+            }
+          }
+        }
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: 76px 0 76px 76px;
+          color: var(--txt-white);
+          flex: 1;
+
+          @media only screen and (max-width: 1299px) {
+            padding: 50px;
+          }
+
+          h2 {
+            color: var(--main-color-green);
+          }
+
+          span {
+            line-height: 30px;
+          }
+        }
+
+        img {
+          width: 866px;
+          height: 464px;
+          flex: 2;
+          border-radius: 40px;
+
+          @media only screen and (max-width: 940px) {
+            width: 577px;
+            height: 309px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1299px) {
+  h2 {
+    font-size: 25px;
+    line-height: 50px !important;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+}

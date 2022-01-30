@@ -1,44 +1,225 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import PhoneInput from "react-phone-number-input/input";
+
+import {
+  IoLogoLinkedin,
+  IoLogoYoutube,
+  IoLogoTwitter,
+  IoLogoGithub,
+  IoLogoFacebook,
+} from "react-icons/io";
 
 import "./layout.scss";
-
+import Input from "../../components/input/Input";
+import Textarea from "../textarea/Textarea";
+import { Phone, Mail, Address, Apartment } from "../../components/icons/Icons";
 import Routes from "../Routes";
 
-import { BrowserRouter, Route } from "react-router-dom";
-import useStore from "../../useStore";
-
-import Facebook from "../../assets/images/facebook.png";
-import Linkedin from "../../assets/images/linkedin.png";
-import Twitter from "../../assets/images/twitter.png";
-import Youtube from "../../assets/images/youtube.png";
+import useStore, { request } from "../../useStore";
 
 const Layout = () => {
-  const G = useStore();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
+
+  const handleContact = async () => {
+    if (name === "") {
+      toast.warning("empty username. Try again!");
+      return;
+    } else if (email === "") {
+      toast.warning("empty email. Try again!");
+      return;
+    } else if (phone === "") {
+      toast.warning("empty phone. Try again!");
+      return;
+    } else if (title === "") {
+      toast.warning("empty subject. Try again!");
+      return;
+    } else if (details === "") {
+      toast.warning("empty detail descriptions. Try again!");
+      return;
+    } else {
+      let contactInfo = {
+        name: name,
+        email: email,
+        phone: phone,
+        subject: title,
+        details: details,
+      };
+
+      const response = await request("/api/v1/customer/contact", contactInfo);
+      console.log(response);
+      if (response?.result) {
+        toast.success("Success to send your info!!!");
+
+        setName("");
+        setEmail("");
+        setPhone("");
+        setTitle("");
+        setDetails("");
+      } else if (response?.error == 1001) {
+        toast.warning(
+          "Usernames can only have lowercase Letters (a-z) and numbers (0-9), 3 ~ 20 characters"
+        );
+      } else if (response?.error == 1002) {
+        toast.warning("invalid email address format");
+      }
+    }
+  };
 
   return (
     <BrowserRouter>
       <Route
-        render={(props) => (
+        render={(props: any) => (
           <div className="layout">
             <div className="content">
               <Routes />
             </div>
+            <section className="container contactus">
+              <div className="header">
+                <h2>Tell us about your project</h2>
+                <span>
+                  Send us a request for proposal! We’ll get back to you with
+                  details and estimations.
+                </span>
+              </div>
+              <div className="row content">
+                <div className="infosign">
+                  <div>
+                    <Input
+                      type="text"
+                      placeholder="Name"
+                      value={name}
+                      onChange={(e: any) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="email"
+                      value={email}
+                      placeholder="Email"
+                      onChange={(e: any) => setEmail(e.target.value)}
+                    />
+
+                    <div>
+                      <PhoneInput
+                        value={phone}
+                        onChange={(e: any) => setPhone(e)}
+                        className="phone"
+                        placeholder="Phone"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Input
+                      type="text"
+                      value={title}
+                      placeholder="Subject of your request"
+                      onChange={(e: any) => setTitle(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Textarea
+                      value={details}
+                      placeholder="Give us more details on your project"
+                      onChange={(e: any) => setDetails(e.target.value)}
+                    />
+                  </div>
+                  <small>
+                    By clicking Send you give consent to processing your data
+                  </small>
+                  <div className="btn" onClick={handleContact}>
+                    Send
+                  </div>
+                </div>
+                <div className="contact">
+                  <div className="bookcall">
+                    <h3>Book an Exploratory Call</h3>
+                    <span>
+                      Do not have any specific task for us in mind but our
+                      skills seem interesting?
+                      <br />
+                      <br />
+                      Get a quick Apriorit intro to better understand our team
+                      capabilities.
+                    </span>
+                    <div>Book time slot</div>
+                  </div>
+                  <div className="info">
+                    <h3>Contact Us</h3>
+                    <div>
+                      <div>
+                        <div>
+                          <Phone size={24} />
+                        </div>
+                        <span>+1 202-780-9339</span>
+                      </div>
+                      <div>
+                        <div>
+                          <Mail size={24} />
+                        </div>
+                        <span>info@galaxy.com</span>
+                      </div>
+                      <div>
+                        <div>
+                          <Address size={24} />
+                        </div>
+                        <span>
+                          3524 Silverside Road Suite 35B Rome, DE 19810-4929
+                          Italy
+                        </span>
+                      </div>
+                      <div>
+                        <div>
+                          <Apartment size={24} />
+                        </div>
+                        <span>D-U-N-S number: 117063762</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
             <div className="footer">
               <div>
-                <img src={Facebook} alt="facebook" />
-                <img src={Linkedin} alt="linkedin" />
-                <img src={Twitter} alt="twitter" />
-                <img src={Youtube} alt="youtube" />
+                <div>
+                  <Link to="/">
+                    <IoLogoLinkedin />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <IoLogoYoutube />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <IoLogoTwitter />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <IoLogoFacebook />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/">
+                    <IoLogoGithub />
+                  </Link>
+                </div>
               </div>
               <div>
-                <span>
-                  © 2022 Galaxy. Privacy Policy Terms and Conditions of Use
-                </span>
+                <span>© 2022 Galaxy Digital</span>
               </div>
             </div>
           </div>
         )}
       />
+      <ToastContainer />
     </BrowserRouter>
   );
 };
