@@ -41,7 +41,7 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <section className="container services">
+      <section id="services" className="container services">
         <h2>Our Services</h2>
         <div className="row items">
           <div>
@@ -119,7 +119,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container solutions">
+      <section id="solutions" className="container solutions">
         <h2>Our Solutions</h2>
         <div className="row items">
           <div>

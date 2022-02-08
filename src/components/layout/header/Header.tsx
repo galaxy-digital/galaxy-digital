@@ -17,7 +17,7 @@ const Header = () => {
       content: "Developers",
     },
     {
-      content: "Community",
+      content: "Recent Projects",
     },
     {
       content: "Contact Us",
@@ -40,11 +40,11 @@ const Header = () => {
   const renderUserToggle = () => <GiHamburgerMenu />;
 
   const renderUserMenu = (item, index) => (
-    <Link to="/" key={index}>
+    <a href="#contactus" key={index}>
       <div className="notification">
         <span>{item.content}</span>
       </div>
-    </Link>
+    </a>
   );
 
   return (
@@ -56,18 +56,18 @@ const Header = () => {
       </div>
       {!mobileView ? (
         <div className="header-link">
-          <Link to="/">
-            <div className="h4">Business</div>
+          <a href="#services">
+            <div className="h4">Services</div>
+          </a>
+          <a href="#solutions">
+            <div className="h4">Solutions</div>
+          </a>
+          <Link to="/details">
+            <div className="h4">Recent Projects</div>
           </Link>
-          <Link to="/">
-            <div className="h4">Developers</div>
-          </Link>
-          <Link to="/">
-            <div className="h4">Community</div>
-          </Link>
-          <Link to="/">
+          <a href="#contactus">
             <div className="h4">Contact Us</div>
-          </Link>
+          </a>
         </div>
       ) : (
         <Dropdown

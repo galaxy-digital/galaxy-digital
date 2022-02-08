@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import PhoneInput from "react-phone-number-input/input";
+import Input from "react-phone-number-input/input";
 
 import {
   IoLogoLinkedin,
@@ -12,7 +12,7 @@ import {
 } from "react-icons/io";
 
 import "./layout.scss";
-import Input from "../../components/input/Input";
+import StyledInput from "../../components/input/Input";
 import Textarea from "../textarea/Textarea";
 import { Phone, Mail, Address, Apartment } from "../../components/icons/Icons";
 import Routes from "../Routes";
@@ -79,7 +79,7 @@ const Layout = () => {
             <div className="content">
               <Routes />
             </div>
-            <section className="container contactus">
+            <section className="container contactus" id="contactus">
               <div className="header">
                 <h2>Tell us about your project</h2>
                 <span>
@@ -90,7 +90,7 @@ const Layout = () => {
               <div className="row content">
                 <div className="infosign">
                   <div>
-                    <Input
+                    <StyledInput
                       type="text"
                       placeholder="Name"
                       value={name}
@@ -98,7 +98,7 @@ const Layout = () => {
                     />
                   </div>
                   <div>
-                    <Input
+                    <StyledInput
                       type="email"
                       value={email}
                       placeholder="Email"
@@ -106,7 +106,7 @@ const Layout = () => {
                     />
 
                     <div>
-                      <PhoneInput
+                      <Input
                         value={phone}
                         onChange={(e: any) => setPhone(e)}
                         className="phone"
@@ -115,7 +115,7 @@ const Layout = () => {
                     </div>
                   </div>
                   <div>
-                    <Input
+                    <StyledInput
                       type="text"
                       value={title}
                       placeholder="Subject of your request"
