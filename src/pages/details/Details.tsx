@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./details.scss";
-import Recent1 from "../../assets/images/recent1.png";
 import Header from "../../components/layout/header/Header";
 import useStore, { request } from "../../useStore";
 
