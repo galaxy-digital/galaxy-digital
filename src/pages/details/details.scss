@@ -36,47 +36,49 @@
 
       > div {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         box-shadow: 0 5px 10px 0 #808080;
         border-radius: 40px;
         cursor: pointer;
         flex-wrap: wrap;
         transition: all 0.85s;
+        width: 100%;
+        flex-grow: 1 2;
+
         &:hover {
           transform: scale(1.05);
         }
 
-        @media only screen and (max-width: 768px) {
-          background: url("../../assets/images/recent1.png") no-repeat;
-          background-size: cover;
-
-          img {
-            display: none;
+        @media only screen and (max-width: 1299px) {
+          .description {
+            padding: 50px !important;
           }
 
-          > div {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+        }
+
+        @media only screen and (max-width: 768px) {
+          .description {
             span {
-              color: var(--txt-white);
+              overflow-wrap: anywhere;
             }
           }
         }
 
-        > div {
+        .description {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-start;
-          padding: 76px 0 76px 76px;
+          padding: 76px 50px 76px 76px;
           color: var(--txt-white);
           flex: 1;
 
-          @media only screen and (max-width: 1299px) {
-            padding: 50px;
-          }
-
-          h2 {
+          h3 {
             color: var(--main-color-green);
+            padding-bottom: 20px;
           }
 
           span {
@@ -84,15 +86,20 @@
           }
         }
 
-        img {
-          width: 866px;
+        .backimage {
+          // width: 866px;
           height: 464px;
           flex: 2;
-          border-radius: 40px;
 
-          @media only screen and (max-width: 940px) {
-            width: 577px;
-            height: 309px;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 0 40px 40px 0;
+
+            @media only screen and(max-width:1299px) {
+              width: 100%;
+              border-radius: 40px 40px 0 0;
+            }
           }
         }
       }
@@ -108,5 +115,23 @@
 
   h1 {
     font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h2 {
+    font-size: 25px;
+    line-height: 50px !important;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  h1 {
+    line-height: 50px;
   }
 }

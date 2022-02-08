@@ -29,11 +29,13 @@ const Detail = () => {
             ? projects.map((item: any) => {
                 return (
                   <div key={item._id}>
-                    <div>
-                      <h2>{item.project}</h2>
+                    <div className="description">
+                      <h3>{item.project}</h3>
                       <span>{item.details}</span>
                     </div>
-                    <img src={Recent1} alt="recent1" />
+                    <div className="backimage">
+                      <img src={item.url} alt="img" />
+                    </div>
                   </div>
                 );
               })
