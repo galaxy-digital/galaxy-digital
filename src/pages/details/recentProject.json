@@ -1,0 +1,30 @@
+[
+    {
+        "iconURL": "images/recentLogo/crossverse.png",
+        "imgURL": "images/recentScreen/crossverseScreen.png",
+        "title": "Crossverse",
+        "siteURL": "https://crossverse.io",
+        "gitURL": "https://github.com/galaxy-foundation/crossverse"
+    },
+    {
+        "iconURL": "images/recentLogo/atari.png",
+        "imgURL": "images/recentScreen/ataridefiScreen.png",
+        "title": "Atari DeFi",
+        "siteURL": "https://defi.atarichain.com/",
+        "gitURL": "https://github.com/galaxy-digital/icicb-defi-app"
+    },
+    {
+        "iconURL": "images/recentLogo/atari.png",
+        "imgURL": "images/recentScreen/ataridexScreen.png",
+        "title": "Atari Dex",
+        "siteURL": "https://dex.atarichain.com/",
+        "gitURL": "https://github.com/galaxy-digital/atari-dex"
+    },
+    {
+        "iconURL": "images/recentLogo/overworldlife.png",
+        "imgURL": "images/recentScreen/overworldScreen.png",
+        "title": "Overworldlife",
+        "siteURL": "https://overworldlife.com",
+        "gitURL": "https://github.com/loganworld/OpenPetworld_site"
+    }
+]

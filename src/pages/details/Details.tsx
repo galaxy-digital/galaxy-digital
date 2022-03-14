@@ -1,48 +1,67 @@
-import React, { useEffect, useState } from "react";
 import "./details.scss";
 import Header from "../../components/layout/header/Header";
-import useStore, { request } from "../../useStore";
+import recentProjects from "./recentProject.json";
+// import useStore, { request } from "../../useStore";
+import { IoIosLink } from "react-icons/io";
+
+const RecentProjectItem = (props: any) => {
+    const { imgURL, title, iconURL, siteURL, gitURL } = props;
+    return (
+        <div>
+            <div>
+                <span>
+                    <img src={iconURL} alt="No Icon" />
+                    &nbsp;<b>{title}</b>
+                </span>
+            </div>
+            <span>
+                <img src={imgURL} alt="recentproject" />
+            </span>
+            <span>
+                <a href={siteURL}>
+                    Link {title} Site&nbsp;
+                    <IoIosLink />
+                </a>
+                <div></div>
+                <a href={gitURL}>
+                    Link {title} Github&nbsp;
+                    <IoIosLink />
+                </a>
+                <div></div>
+            </span>
+        </div>
+    );
+};
 
 const Detail = () => {
-  const [projects, setProjects] = useState([]);
+    return (
+        <div className="background">
+            <div className="container details">
+                <Header />
+                <div className="title">
+                    <h2>We Design with care and Develop with precision</h2>
+                    <h1>Our Recent Projects</h1>
+                </div>
 
-  const getProjects = async () => {
-    const responseData = await request("/api/v1/project", []);
-    setProjects(responseData?.result);
-  };
-
-  useEffect(() => {
-    getProjects();
-  }, []);
-
-  return (
-    <div className="background">
-      <div className="container details">
-        <Header />
-        <div className="title">
-          <h2>We Design with care and Develop with precision</h2>
-          <h1>Our Recent Projects</h1>
-        </div>
-        <div className="content">
-          {projects
-            ? projects.map((item: any) => {
-                return (
-                  <div key={item._id}>
-                    <div className="description">
-                      <h3>{item.project}</h3>
-                      <span>{item.details}</span>
+                <section className="container recent">
+                    <div className="row items">
+                        {recentProjects.map((item: any, index: number) => {
+                            return (
+                                <RecentProjectItem
+                                    key={index}
+                                    iconURL={item.iconURL}
+                                    imgURL={item.imgURL}
+                                    title={item.title}
+                                    siteURL={item.siteURL}
+                                    gitURL={item.gitURL}
+                                />
+                            );
+                        })}
                     </div>
-                    <div className="backimage">
-                      <img src={item.url} alt="img" />
-                    </div>
-                  </div>
-                );
-              })
-            : null}
+                </section>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Detail;
